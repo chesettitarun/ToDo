@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='myfont/css/all.min.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+        .shadow{
+            box-shadow:3px 3px 10px black;
+            padding:30px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-top:100px" stye="text-align:center;">
+        <div class="col-md-offset-3 col-md-5">
+            <div class="shadow">
+                <form method="POST" action="/register">
+                    <h2 class="page-header text-primary text-center">Registration</h2>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+                    
+                   
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+                     <div class="form-group">
+                        <input type="submit" class="btn btn-success btn-block" value="Register">
+                         <a href="{{url_for('index')}}" class="btn btn-primary btn-block">Go Back to Home</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $("form").attr("autocomplete","off");
+    });
+</script>
