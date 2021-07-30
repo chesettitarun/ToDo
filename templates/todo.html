@@ -1,0 +1,52 @@
+<html>
+    <head>
+    
+        <meta charset="UTF-8">
+        <title>Customer Page</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+        
+            <h1 class="page-header text-primary text-center" style="text-align: center;">Welcome : {{session["name"]}}</h1>
+            <h2 class="page-header text-primary text-center" style="text-align: center;"></h2>     
+    </head>
+
+    <body style="background-color:powderblue">
+        <div style="margin-top: 50px;" class="ui container">
+            <h2 class="ui center aligned header"><b>To-Do</b></h2>
+                
+                <form  class="ui form" action="/task" method="post" >
+                    <div class="field">
+                        <label>Todo Title</label>
+                        <input type="text" name="content" placeholder="Enter Todo..." required><br>
+                    </div>
+                    
+                    <button class="ui blue button" type="submit">Add Task</button> 
+                </form>  
+                <hr>
+                <div class="ui segment">
+                    <ol>
+                     
+                        {% for task in tasks %}
+                            <li>
+                                {% if task[3] %} <del> {% endif %}{{ task[2] }} {% if task[3] %} </del>{% endif %}
+                                <br>
+                                <a href='/done/{{ task[0] }}'><button class="ui green button"> Done</button></a>
+                                <a href='/delete/{{ task[0] }}'><button class="ui red button"> Delete</button></a>
+                                <hr>
+                            </li>
+                        {% endfor %}
+              
+                    </ol>
+                </div>
+        </div>
+        <br>
+        <form method="GET" action="/" class="ui form">
+            <div class="field" style="text-align: center;">
+                <button class="ui orange button" type="submit">Logout</button> 
+            </div>
+        </form> 
+        
+    </body>
+   
+</html>
+
