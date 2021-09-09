@@ -1,3 +1,2 @@
-web: gunicorn app:app --preload
-web: python3 app.py
+web: uvicorn main:app --reload --host 0.0.0.0 --port $PORT
 heroku ps:scale web=1
