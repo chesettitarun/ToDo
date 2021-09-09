@@ -1,5 +1,4 @@
 --use-feature=2020-resolver
-heroku ps:scale web=1
 astroid==2.6.5
 cachelib==0.2.0
 click==8.0.1
